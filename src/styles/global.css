@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+:root {
+  --border: oklch(0.929 0.013 255.508);
+}
+
+@theme inline {
+  --color-border: var(--border);
+}

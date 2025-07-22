@@ -1,16 +1,34 @@
 ---
-
+import "../styles/global.css";
+import yogaMat from "../images/yoga-mat.png";
+import App from "../components/App.svelte";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>shavasana</title>
+  </head>
+  <body class="h-full bg-slate-50 p-4 text-slate-800 antialiased">
+    <header>
+      <div class="flex items-center space-x-3">
+        <div class="grid place-items-center rounded-lg bg-slate-200 p-1.5">
+          <img
+            src={yogaMat.src}
+            alt="A skeumorphistic illustration of a blue yoga mat."
+            height={24}
+            width={24}
+          />
+        </div>
+        <h1 class="font-medium">shavasana</h1>
+      </div>
+    </header>
+
+    <main class="mt-4">
+      <App client:load />
+    </main>
+  </body>
 </html>
