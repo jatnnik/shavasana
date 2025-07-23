@@ -7,3 +7,17 @@
 @theme inline {
   --color-border: var(--border);
 }
+
+@theme {
+  --color-feather-50: oklch(96.7% 0.018 64.95);
+  --color-feather-100: oklch(92.46% 0.044 66.13);
+  --color-feather-200: oklch(83.96% 0.114 73.65);
+  --color-feather-300: oklch(75.58% 0.125 76.07);
+  --color-feather-400: oklch(66.66% 0.11 75.66);
+  --color-feather-500: oklch(58.06% 0.097 76.15);
+  --color-feather-600: oklch(48.47% 0.08 75.56);
+  --color-feather-700: oklch(39.92% 0.066 75.43);
+  --color-feather-800: oklch(31.26% 0.052 76.03);
+  --color-feather-900: oklch(22.52% 0.038 74.83);
+  --color-feather-950: oklch(17.83% 0.03 73.72);
+}

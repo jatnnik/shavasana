@@ -72,7 +72,7 @@
     days[dayIndex].videos.splice(videoIndex, 1);
   }
 
-  function generateCover() {
+  async function generateCover() {
     isGenerating = true;
 
     // Add thumbnail urls
@@ -86,6 +86,8 @@
         })
         .filter((ytu) => ytu !== null),
     }));
+
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     html2canvas(document.querySelector("#capture") as HTMLElement, {
       useCORS: true,
@@ -123,12 +125,12 @@
                 type="text"
                 bind:value={day.videos[videoIndex]}
                 placeholder="YouTube URL"
-                class="h-9 w-full rounded-md border border-zinc-400 px-3 text-sm"
+                class="h-9 w-full rounded-md border border-zinc-400 px-3 text-base"
                 use:init
               />
               <button
                 aria-label="Löschen"
-                class="cursor-pointer text-rose-500 [&>svg]:size-5"
+                class="cursor-pointer text-rose-700 [&>svg]:size-5"
                 onclick={() => removeVideo(dayIndex, videoIndex)}
               >
                 <TrashIcon />
@@ -139,7 +141,7 @@
       </div>
       <div>
         <button
-          class="font-bold text-sky-600 underline"
+          class="bg-feather-400 rounded-md px-2 py-1 text-sm font-medium text-white"
           onclick={() => {
             day.videos.push("");
           }}>Hinzufügen</button

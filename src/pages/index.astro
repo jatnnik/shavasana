@@ -7,14 +7,20 @@ import App from "../components/App.svelte";
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <title>shavasana</title>
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+    <meta name="description" content="A simple workout planning app." />
+    <meta name="theme-color" content="#bb8a3e" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <link rel="apple-touch-startup-image" href="/apple-touch-icon.png" />
   </head>
-  <body class="h-full bg-slate-50 p-4 text-slate-800 antialiased">
+  <body class="text-feather-800 h-full bg-stone-50 p-4 antialiased">
     <header>
-      <div class="flex items-center space-x-3">
+      <div class="flex items-center space-x-2">
         <div class="grid place-items-center rounded-lg bg-slate-200 p-1.5">
           <img
             src={yogaMat.src}
@@ -23,7 +29,7 @@ import App from "../components/App.svelte";
             width={24}
           />
         </div>
-        <h1 class="font-medium">shavasana</h1>
+        <h1 class="text-sm font-medium">shavasana</h1>
       </div>
     </header>
 
