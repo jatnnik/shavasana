@@ -48,6 +48,27 @@
     },
   ]);
 
+  const urlParams = new URLSearchParams(window.location.search);
+  const isTestMode = urlParams.has("testmode");
+
+  function setTestVideos() {
+    days = days.map((d) => ({
+      ...d,
+      videos: [
+        "https://youtu.be/pm8AF_mLk_A?si=ZFiPSGlb7OvhLEJ_",
+        "https://youtu.be/pm8AF_mLk_A?si=ZFiPSGlb7OvhLEJ_",
+      ],
+      youtubeThumbnailUrls: [
+        "https://i.ytimg.com/vi/pm8AF_mLk_A/mqdefault.jpg",
+        "https://i.ytimg.com/vi/pm8AF_mLk_A/mqdefault.jpg",
+      ],
+    }));
+  }
+
+  if (isTestMode) {
+    setTestVideos();
+  }
+
   let canGenerate = $derived(
     days.some((d) => d.videos.filter(Boolean).length > 0),
   );
@@ -82,7 +103,7 @@
         .map((v) => {
           const youtubeId = extractYouTubeId(v);
           if (!youtubeId) return null;
-          return `https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`;
+          return `https://i.ytimg.com/vi/${youtubeId}/mqdefault.jpg`;
         })
         .filter((ytu) => ytu !== null),
     }));
@@ -154,15 +175,27 @@
 {#if isGenerating}
   <div
     id="capture"
-    class="relative h-[1440px] w-[2560px] border bg-[#FDF2E8] p-20 font-mono"
+    class="relative h-[1440px] w-[2560px] border bg-[#FDF2E8] p-16 font-mono"
   >
-    <div class="grid grid-cols-4 gap-x-12 gap-y-48">
+    <div class="grid grid-cols-4 gap-x-8 gap-y-12">
       {#each days as day}
         <div>
-          <h2 class="mb-8 text-2xl font-bold text-[#c27a4f]">{day.label}</h2>
-          <div class="grid grid-cols-2 gap-4">
+          <h2 class="mb-8 text-4xl leading-none font-bold text-[#c27a4f]">
+            {day.label}
+          </h2>
+          <div
+            class={[
+              "grid gap-2",
+              day.youtubeThumbnailUrls.length <= 2 && "grid-cols-1",
+              day.youtubeThumbnailUrls.length > 2 && "grid-cols-2",
+            ]}
+          >
             {#each day.youtubeThumbnailUrls as thumbnailUrl}
-              <img src={thumbnailUrl} alt="" />
+              <img
+                src={thumbnailUrl}
+                alt=""
+                class="h-auto w-full max-w-[490px]"
+              />
             {/each}
           </div>
         </div>
@@ -173,7 +206,7 @@
     <img
       src={`/illustrations/${illustrations[(illustrations.length * Math.random()) | 0]}`}
       alt=""
-      class="absolute right-20 bottom-20 w-[500px]"
+      class="absolute right-10 bottom-10 w-[450px]"
     />
   </div>
 {/if}
@@ -187,7 +220,7 @@
     <div role="status">
       <svg
         aria-hidden="true"
-        class="size-4 animate-spin fill-sky-700 text-white"
+        class="size-4 animate-spin fill-[#99BF71] text-white"
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
