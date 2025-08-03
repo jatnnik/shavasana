@@ -2,7 +2,7 @@
   import html2canvas from "html2canvas-pro";
   import { extractYouTubeId } from "../lib/extractYoutubeId";
   import ExportButton from "./ExportButton.svelte";
-  import TrashIcon from "./TrashIcon.svelte";
+  import { Trash2 } from "@lucide/svelte";
 
   interface Day {
     label: string;
@@ -93,6 +93,13 @@
     days[dayIndex].videos.splice(videoIndex, 1);
   }
 
+  async function handlePaste(day: Day) {
+    const text = await navigator.clipboard.readText();
+    if (text) {
+      day.videos.push(text);
+    }
+  }
+
   async function generateCover() {
     isGenerating = true;
 
@@ -154,7 +161,7 @@
                 class="cursor-pointer text-rose-700 [&>svg]:size-5"
                 onclick={() => removeVideo(dayIndex, videoIndex)}
               >
-                <TrashIcon />
+                <Trash2 />
               </button>
             </div>
           {/each}
@@ -166,6 +173,10 @@
           onclick={() => {
             day.videos.push("");
           }}>Hinzufügen</button
+        >
+        <button
+          class="rounded-md bg-stone-600 px-2 py-1 text-sm font-medium text-white"
+          onclick={() => handlePaste(day)}>Einfügen</button
         >
       </div>
     </div>

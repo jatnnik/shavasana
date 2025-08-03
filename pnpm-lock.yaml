@@ -11,6 +11,9 @@ importers:
       '@astrojs/svelte':
         specifier: ^7.1.0
         version: 7.1.0(@types/node@24.0.14)(astro@5.12.0(@types/node@24.0.14)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.45.1)(typescript@5.8.3))(jiti@2.4.2)(lightningcss@1.30.1)(svelte@5.36.8)(typescript@5.8.3)
+      '@lucide/svelte':
+        specifier: ^0.536.0
+        version: 0.536.0(svelte@5.36.8)
       '@tailwindcss/vite':
         specifier: ^4.1.11
         version: 4.1.11(vite@6.3.5(@types/node@24.0.14)(jiti@2.4.2)(lightningcss@1.30.1))
@@ -374,6 +377,11 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.29':
     resolution: {integrity: sha512-uw6guiW/gcAGPDhLmd77/6lW8QLeiV5RUTsAX46Db6oLhGaVj4lhnPwb184s1bkc8kdVg/+h988dro8GRDpmYQ==}
+
+  '@lucide/svelte@0.536.0':
+    resolution: {integrity: sha512-YAeoWU+0B/RriFZZ3wHno1FMkbrVrFdityuo2B0YuphD0vtJWXStzZkWLGVhT3jMb7zhugmhayIg+gI4+AZu1g==}
+    peerDependencies:
+      svelte: ^5
 
   '@oslojs/encoding@1.1.0':
     resolution: {integrity: sha512-70wQhgYmndg4GCPxPPxPGevRKqTIJ2Nh4OkiMWmDAVYsTQ+Ta7Sq+rPevXyXGdzr30/qZBnyOalCszoMxlyldQ==}
@@ -2139,6 +2147,10 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.4
+
+  '@lucide/svelte@0.536.0(svelte@5.36.8)':
+    dependencies:
+      svelte: 5.36.8
 
   '@oslojs/encoding@1.1.0': {}
 
