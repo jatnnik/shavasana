@@ -79,7 +79,6 @@
     "grass.png",
     "relaxation.png",
     "skateboard.png",
-    "stars.png",
     "workout.png",
   ];
 
